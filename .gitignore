@@ -1,0 +1,4 @@
+group_vars/all
+*~
+*.swo
+*.swp

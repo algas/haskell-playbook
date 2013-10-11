@@ -1,0 +1,10 @@
+---
+# file: install.yml
+- name: extrace ghc archive file
+  command: "{{ ghc_extract_command }} {{ ghc_extract_options }} {{ ghc_archive_file }} chdir={{ ghc_cache_dir }} creates={{ ghc_extract_dir }}"
+
+- name: configure ghc installer
+  command: "./configure {{ ghc_configure_options }} chdir={{ ghc_extract_dir }}"
+
+- name: install ghc
+  command: "make install chdir={{ ghc_extract_dir }}"

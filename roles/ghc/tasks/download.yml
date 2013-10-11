@@ -1,0 +1,10 @@
+---
+# file: download.yml
+- name: create cache directory
+  file: "dest={{ ghc_cache_dir }} mode=755 state=directory"
+
+- name: create prefix directory
+  file: "dest={{ ghc_prefix_dir }} mode=755 state=directory"
+
+- name: download ghc archive file
+  get_url: "url={{ ghc_url }} dest={{ ghc_cache_dir }}/{{ ghc_archive_file }}"

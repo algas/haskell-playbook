@@ -1,0 +1,6 @@
+---
+# file: ghc.yml
+- hosts: all
+  roles:
+    - ghc
+

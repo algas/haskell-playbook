@@ -1,0 +1,5 @@
+---
+# file: site.yml
+- include: ghc.yml
+- include: cabal.yml
+

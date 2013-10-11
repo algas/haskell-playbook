@@ -1,0 +1,11 @@
+---
+# file: download.yml
+- name: create cache directory
+  file: "dest={{ cabal_cache_dir }} mode=755 state=directory"
+
+- name: create prefix directory
+  file: "dest={{ cabal_prefix_dir }} mode=755 state=directory"
+
+- name: download archive file
+  get_url: "url={{ cabal_url }} dest={{ cabal_cache_dir }}/{{ cabal_archive_file }}"
+

@@ -1,0 +1,7 @@
+---
+# file: install.yml
+- name: extract archive file
+  command: "{{ cabal_extract_command }} {{ cabal_extract_options }} {{ cabal_archive_file }} chdir={{ cabal_cache_dir }} creates={{ cabal_extract_dir }}"
+
+- name: install cabal
+  shell: "{{ cabal_configure_options }} /bin/bash bootstrap.sh {{ cabal_scope }} chdir={{ cabal_extract_dir }}"

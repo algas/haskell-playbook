@@ -1,0 +1,6 @@
+---
+# file: cabal.yml
+- hosts: all
+  roles:
+    - cabal
+

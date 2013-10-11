@@ -1,0 +1,7 @@
+---
+# file: dependency.yml
+- name: install packages
+  sudo: yes
+  apt:  "pkg={{ item }} update_cache=yes"
+  with_items: cabal_dependencies
+
