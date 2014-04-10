@@ -2,10 +2,10 @@
 # file: group_vars/all
 arch: x86_64
 vendor: unknown
-os: linux
+os: linux-deb7
 
 # ghc
-ghc_version: 7.6.3
+ghc_version: 7.8.1
 ghc_cache_dir: /tmp/ghc
 ghc_extract_dir: "{{ ghc_cache_dir }}/ghc-{{ ghc_version }}"
 ghc_prefix_dir: "{{ lookup('env','HOME') }}/ghc"
@@ -21,7 +21,7 @@ ghc_dependencies:
   - libgmp3-dev
 
 # cabal
-cabal_install_version: 1.18.0.2
+cabal_install_version: 1.18.0.3
 cabal_cache_dir: /tmp/cabal
 cabal_extract_dir: "{{ cabal_cache_dir }}/cabal-install-{{ cabal_install_version }}"
 cabal_prefix_dir: "{{ lookup('env','HOME') }}/.cabal"

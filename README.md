@@ -6,8 +6,8 @@ Ansibler user need to have no root privilege.
 
 ### Requirements
 
-- Ansible 1.4
-- Ubuntu or Debian (only tested on Ubuntu 13.04)
+- Ansible 1.4 and over
+- Ubuntu or Debian (only tested on Ubuntu 13.04 and 13.10)
 
 ### Configure
 
@@ -29,3 +29,4 @@ Make sure that you customise the following files:
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 Copyright 2013 [Masahiro Yamauchi](mailto:sgt.yamauchi@gmail.com).
+
