@@ -4,4 +4,10 @@
   sudo: yes
   apt:  "pkg={{ item }} update_cache=yes"
   with_items: cabal_dependencies
+  when: package == "apt"
+
+- name: install packages
+  homebrew:  "pkg={{ item }} update_homebrew=yes"
+  with_items: cabal_dependencies
+  when: package == "homebrew"
 

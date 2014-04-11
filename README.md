@@ -6,27 +6,40 @@ Ansibler user need to have no root privilege.
 
 ### Requirements
 
+- Python
 - Ansible 1.4 and over
-- Ubuntu or Debian (only tested on Ubuntu 13.04 and 13.10)
+- SSH server and client
+
+### OS
+
+- Debian, Ubuntu
+- Mac OS X
+
+### Preparing
+
+1. Setup ssh server on destination host.
+2. Setup ssh client.
+3. Install Python and Ansible.
+4. Download this playbook.
+git clone git@github.com:algas/haskell-playbook.git
 
 ### Configure
 
 Make sure that you customise the following files:
 
 - [`hosts`] - hosts to be installed (localhost as default)
-- [`group_vars/all`] - `cp group_vars/all.example group_vars/all`
-
-### Preparing
-
-- SSH into the hosts.
+- [`group_vars/all`] - configuration arguments
+  - Debian, Ubuntu: `cp group_vars/all.example.debian group_vars/all`
+  - Mac OS X : `cp group_vars/all.example.macosx group_vars/all`
 
 ### Usage
 
+Run command:  
 `ansible-playbook -i hosts site.yml`
 
 ### License
 
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright 2013 [Masahiro Yamauchi](mailto:sgt.yamauchi@gmail.com).
+Copyright (c) 2013- [Masahiro Yamauchi](mailto:sgt.yamauchi@gmail.com).
 
