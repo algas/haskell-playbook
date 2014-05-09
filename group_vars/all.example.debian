@@ -22,7 +22,7 @@ ghc_dependencies:
   - libgmp3-dev
 
 # cabal
-cabal_install_version: 1.18.0.3
+cabal_install_version: 1.20.0.1
 cabal_cache_dir: /tmp/cabal
 cabal_extract_dir: "{{ cabal_cache_dir }}/cabal-install-{{ cabal_install_version }}"
 cabal_prefix_dir: "{{ lookup('env','HOME') }}/.cabal"
