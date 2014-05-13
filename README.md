@@ -13,6 +13,7 @@ Ansibler user need to have no root privilege.
 ### OS
 
 - Debian, Ubuntu
+- CentOS
 - Mac OS X
 
 ### Preparing
@@ -30,6 +31,7 @@ Make sure that you customise the following files:
 - [`hosts`] - hosts to be installed (localhost as default)
 - [`group_vars/all`] - configuration arguments
   - Debian, Ubuntu: `cp group_vars/all.example.debian group_vars/all`
+  - CentOS: `cp group_vars/all.example.centos group_vars/all`
   - Mac OS X : `cp group_vars/all.example.macosx group_vars/all`
 
 ### Usage
