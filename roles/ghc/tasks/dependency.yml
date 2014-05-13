@@ -11,3 +11,18 @@
   with_items: ghc_dependencies
   when: package == "homebrew"
 
+- name: install development packages
+  sudo: yes
+  yum:  pkg="@Development Tools"
+  when: package == "yum"
+
+- name: install packages
+  sudo: yes
+  yum:  pkg={{ item }}
+  with_items: ghc_dependencies
+  when: package == "yum"
+
+- name: make symlink of libraries
+  sudo: yes
+  file: "src={{ item.src }} dest={{ item.dest }} state=link"
+  with_items: ghc_symlinks

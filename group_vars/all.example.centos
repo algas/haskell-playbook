@@ -1,0 +1,38 @@
+---
+# file: group_vars/all
+arch: x86_64
+vendor: unknown
+os: linux-centos65
+package: yum
+
+# ghc
+ghc_version: 7.8.2
+ghc_cache_dir: /tmp/ghc
+ghc_extract_dir: "{{ ghc_cache_dir }}/ghc-{{ ghc_version }}"
+ghc_prefix_dir: "{{ lookup('env','HOME') }}/ghc"
+ghc_archive_file: "ghc-{{ ghc_version }}-{{ arch }}-{{ vendor }}-{{ os }}.tar.bz2"
+ghc_base_url: "http://www.haskell.org/ghc/dist"
+ghc_url: "{{ ghc_base_url }}/{{ ghc_version }}/{{ ghc_archive_file }}"
+ghc_extract_command: /bin/tar
+ghc_extract_options: "-xf"
+ghc_configure_options: "--prefix={{ ghc_prefix_dir }}"
+ghc_dependencies:
+  - gmp-devel
+ghc_symlinks:
+  - { src: /usr/lib64/libgmp.so.3, dest: /usr/lib64/libgmp.so }
+
+# cabal
+cabal_install_version: 1.18.0.3
+cabal_cache_dir: /tmp/cabal
+cabal_extract_dir: "{{ cabal_cache_dir }}/cabal-install-{{ cabal_install_version }}"
+cabal_prefix_dir: "{{ lookup('env','HOME') }}/.cabal"
+cabal_archive_file: "cabal-install-{{ cabal_install_version }}.tar.gz"
+cabal_base_url: "http://hackage.haskell.org/package"
+cabal_url: "{{ cabal_base_url }}/cabal-install-{{ cabal_install_version }}/{{ cabal_archive_file }}"
+cabal_extract_command: /bin/tar
+cabal_extract_options: "-xf"
+cabal_configure_options: "PREFIX={{ cabal_prefix_dir }} GHC={{ ghc_prefix_dir }}/bin/ghc GHC_PKG={{ ghc_prefix_dir }}/bin/ghc-pkg EXTRA_CONFIRURE_OPTS=--package-db={{ ghc_prefix_dir }}/lib/ghc-{{ ghc_version }}/package.conf.d"
+cabal_scope: "--user"
+cabal_dependencies:
+
+
