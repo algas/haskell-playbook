@@ -6,8 +6,17 @@
   with_items: cabal_dependencies
   when: package == "apt"
 
-- name: install packages
-  homebrew:  "pkg={{ item }} update_homebrew=yes"
+- name: update homebrew
+  homebrew: update_homebrew=yes
+  when: package == "homebrew"
+
+- name: tap dependencies
+  homebrew_tap:  "tap={{ item }}" 
+  with_items: cabal_homebrew_taps
+  when: package == "homebrew"
+
+- name: install package
+  homebrew:  "pkg={{ item }}"
   with_items: cabal_dependencies
   when: package == "homebrew"
 
