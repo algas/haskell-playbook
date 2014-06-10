@@ -39,6 +39,14 @@ Make sure that you customise the following files:
 Run command:  
 `ansible-playbook -i hosts site.yml`
 
+### Notice
+
+* Remember to add PATH to ghc and cabal.  
+Add the following line into your shell profile (.bashrc or .bash_profile)  
+```
+echo "export PATH=$HOME/ghc/bin:$HOME/.cabal/bin:$PATH" >> ~/.bash_profile
+```
+
 ### License
 
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
