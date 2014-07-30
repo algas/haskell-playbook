@@ -6,7 +6,7 @@ os: linux-deb7
 package: apt
 
 # ghc
-ghc_version: 7.8.2
+ghc_version: 7.8.3
 ghc_cache_dir: /tmp/ghc
 ghc_extract_dir: "{{ ghc_cache_dir }}/ghc-{{ ghc_version }}"
 ghc_prefix_dir: "{{ lookup('env','HOME') }}/ghc"
@@ -22,7 +22,7 @@ ghc_dependencies:
   - libgmp3-dev
 
 # cabal
-cabal_install_version: 1.20.0.1
+cabal_install_version: 1.18.0.5
 cabal_cache_dir: /tmp/cabal
 cabal_extract_dir: "{{ cabal_cache_dir }}/cabal-install-{{ cabal_install_version }}"
 cabal_prefix_dir: "{{ lookup('env','HOME') }}/.cabal"
