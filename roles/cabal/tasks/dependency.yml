@@ -1,10 +1,16 @@
 ---
 # file: dependency.yml
-- name: install packages
+- name: install apt packages
   sudo: yes
   apt:  "pkg={{ item }} update_cache=yes"
   with_items: cabal_dependencies
   when: package == "apt"
+
+- name: install yum packages
+  sudo: yes
+  yum:  "name={{ item }} update_cache=yes"
+  with_items: cabal_dependencies
+  when: package == "yum"
 
 - name: update homebrew
   homebrew: update_homebrew=yes
@@ -15,7 +21,7 @@
   with_items: cabal_homebrew_taps
   when: package == "homebrew"
 
-- name: install package
+- name: install brew package
   homebrew:  "pkg={{ item }}"
   with_items: cabal_dependencies
   when: package == "homebrew"
