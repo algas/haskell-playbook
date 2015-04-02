@@ -19,7 +19,7 @@ ghc_configure_options: "--prefix={{ ghc_prefix_dir }}"
 ghc_dependencies: autoconf,automake,llvm,docbook
 
 # cabal
-cabal_install_version: 1.20.0.1
+cabal_install_version: 1.22.2.0
 cabal_cache_dir: /tmp/cabal
 cabal_extract_dir: "{{ cabal_cache_dir }}/cabal-install-{{ cabal_install_version }}"
 cabal_prefix_dir: "{{ lookup('env','HOME') }}/.cabal"
@@ -29,6 +29,6 @@ cabal_url: "{{ cabal_base_url }}/cabal-install-{{ cabal_install_version }}/{{ ca
 cabal_extract_command: /usr/bin/tar
 cabal_extract_options: "-xf"
 cabal_configure_options: "PREFIX={{ cabal_prefix_dir }} GHC={{ ghc_prefix_dir }}/bin/ghc GHC_PKG={{ ghc_prefix_dir }}/bin/ghc-pkg EXTRA_CONFIRURE_OPTS=--package-db={{ ghc_prefix_dir }}/lib/ghc-{{ ghc_version }}/package.conf.d"
-cabal_scope: "--user"
+cabal_scope: "--user --no-doc"
 cabal_homebrew_taps: homebrew/dupes
 cabal_dependencies: zlib
